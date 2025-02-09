@@ -116,7 +116,7 @@ Reactフロントエンドのソースコードが格納されています。
 
 3.  **Firebaseプロジェクトのセットアップ:**
     *   Firebaseプロジェクトを作成し、Webアプリとして登録します。
-    *   Firebaseプロジェクトの認証情報を取得し、`backend/firebase-credentials.json`に配置します。**本番環境では、認証情報を安全に管理し、リポジトリにコミットしないように注意してください。**
+    *   Firebaseプロジェクトの認証情報を取得し、`backend/firebase-credentials.json`に配置します。**本番環境では、認証情報を安全に管理し、publicリポジトリにコミットしないように注意してください。**
     *   Firebaseプロジェクトの設定情報を、`backend/config.py`に設定します。
     *   Firebase Authenticationを有効にし、Googleログインを有効にします。
     *   Firebase Authenticationでユーザーを作成し、APIをテストできるようにします。
@@ -139,13 +139,6 @@ Reactフロントエンドのソースコードが格納されています。
     python main.py
     ```
 
-    または、Dockerを使用する場合：
-
-    ```bash
-    docker build -t coaching-ai-backend .
-    docker run -p 5000:8080 coaching-ai-backend
-    ```
-
 2.  **Reactフロントエンドの起動:**
 
     ```bash
@@ -157,34 +150,12 @@ Reactフロントエンドのソースコードが格納されています。
 
 ## 本番環境へのデプロイ
 
-本番環境へのデプロイには、Dockerコンテナを使用することを推奨します。
-
-1.  **Dockerイメージのビルド:**
-
-    ```bash
-    cd backend
-    docker build -t coaching-ai-backend .
-    ```
-
-2.  **Dockerイメージのプッシュ:**
-
-    ```bash
-    docker tag coaching-ai-backend gcr.io/[your-project-id]/coaching-ai-backend
-    docker push gcr.io/[your-project-id]/coaching-ai-backend
-    ```
-
-3.  **Google Cloud Runへのデプロイ:**
-
-    *   Google Cloud ConsoleでCloud Runにアクセスし、新しいサービスを作成します。
-    *   コンテナイメージとして、先ほどプッシュした`gcr.io/[your-project-id]/coaching-ai-backend`を指定します。
-    *   ポートを8080に設定します。
-    *   必要に応じて、環境変数（APIキーなど）を設定します。
-    *   サービスを作成し、URLを取得します。
-    *   Frontend側のVITE_API_URLをCloud RunのURLに修正します。
+本番環境へのデプロイには、cloud runにGithubリポジトリを接続する方法を取りました。
+こうすることにより、Githubリポジトリに変更した情報をpushすると、自動的にcloud runにデプロイされるようになります。
 
 ## 注意事項
 
-*   **Firebase認証情報**: `firebase-credentials.json`は機密情報を含むため、リポジトリにコミットしないように注意してください。本番環境では、環境変数などを使用して安全に管理することを推奨します。
+*   **Firebase認証情報**: `firebase-credentials.json`は機密情報を含むため、publicリポジトリにコミットしないように注意してください。本番環境では、環境変数などを使用して安全に管理することを推奨します。可能であればgoogleのSecret Managerを使用するとより安全にキーを管理することができます。
 *   **APIキー**: APIキーも同様に、安全に管理してください。
 *   **セキュリティ**: 本番環境では、アプリケーションのセキュリティを確保するために、適切な対策を講じてください（HTTPSの使用、入力値の検証、など）。
 
@@ -192,6 +163,6 @@ Reactフロントエンドのソースコードが格納されています。
 
 このプロジェクトに関する質問やフィードバックは、以下までお寄せください。
 
-\[your name]
+miya
 
-\[your email]
+latte1024 @hotmail.com
