@@ -165,4 +165,3 @@ Reactフロントエンドのソースコードが格納されています。
 
 miya
 
-latte1024 @hotmail.com
