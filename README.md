@@ -165,3 +165,4 @@ Reactフロントエンドのソースコードが格納されています。
 
 miya
 
+[ご意見ご感想連絡フォーム](https://docs.google.com/forms/d/e/1FAIpQLSdFpGYIpPL-RvCs0MR_CHR6QLv39qeAK9QPPDAoncLIiCu7Zg/viewform?usp=header)
